@@ -10,6 +10,8 @@ import org.w3c.dom.Text
  import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_recycler_view.*
 
+
+
  class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -19,20 +21,15 @@ import kotlinx.android.synthetic.main.item_recycler_view.*
         setContentView(R.layout.activity_main)
 
         val timeList = listOf(
-            "",
-            "",
             ""
         )
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.adapter = MyRecyclerViewAdapter(timeList)
+        recyclerView.adapter = MyRecyclerViewAdapter(timeList, supportFragmentManager)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
 
-//        dialog_button.setOnClickListener() {
-//            val dialog = DoneDialogFragment()
-//            dialog.show(supportFragmentManager, "anyway")
-//        }
+
     }
 
 }

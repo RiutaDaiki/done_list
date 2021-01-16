@@ -13,4 +13,5 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val timeText : TextView = itemView.findViewById(R.id.time_text)
     val ItemText : TextView = itemView.findViewById(R.id.item_text)
     val dialogButton = itemView.findViewById<Button>(R.id.dialog_button)
+    val clickarea = itemView.findViewById<View>(R.id.clickArea)
 }

@@ -4,9 +4,10 @@ package com.example.donelist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRecyclerViewAdapter(val list: List<String>) : RecyclerView.Adapter<MyViewHolder>() {
+class MyRecyclerViewAdapter(val list: List<String>, val supportFragmentManager: FragmentManager) : RecyclerView.Adapter<MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_view, parent, false)
@@ -16,7 +17,10 @@ class MyRecyclerViewAdapter(val list: List<String>) : RecyclerView.Adapter<MyVie
     override fun onBindViewHolder(holder: MyViewHolder, index: Int) {
         holder.timeText.text = index.toString()
         holder.ItemText.text = ""
-        holder.dialogButton
+        holder.clickarea.setOnClickListener() {
+            val dialog = DoneDialogFragment()
+            dialog.show(supportFragmentManager, null)
+        }
     }
 
     override fun getItemCount(): Int = list.size
